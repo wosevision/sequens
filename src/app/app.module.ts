@@ -2,17 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
+import { TimelineModule } from './timeline/timeline.module';
 import { AppComponent } from './app.component';
-import { TimelineComponent } from './timeline/timeline.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TimelineComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    TimelineModule
   ],
   providers: [],
   bootstrap: [AppComponent]
