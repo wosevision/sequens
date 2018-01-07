@@ -1,39 +1,9 @@
 <mat-toolbar color="primary">Timeline</mat-toolbar>
-<table>
-  <thead>
-    <tr>
-      <th>Active</th>
-      <th>Controls</th>
-      <th>Timeline</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Yes</td>
-      <td>> ||</td>
-      <td>
-        <input type="range" />
-      </td>
-    </tr>
-  </tbody>
-</table>
 <mat-list>
-  <h3 mat-subheader>Folders</h3>
+  <h3 mat-subheader>Layers</h3>
   <mat-list-item>
     <mat-icon mat-list-icon>folder</mat-icon>
-    <h4 mat-line>Thing</h4>
-    <p mat-line>Last updated: doo</p>
+    <h4 mat-line>layer_1</h4>
+    <p mat-line>{{ layer.tag + layer.id + layer.class }}</p>
   </mat-list-item>
-  <!-- <mat-list-item *ngFor="let folder of folders">
-    <mat-icon mat-list-icon>folder</mat-icon>
-    <h4 mat-line>{{folder.name}}</h4>
-    <p mat-line> {{folder.updated | date}} </p>
-  </mat-list-item>
-  <mat-divider></mat-divider>
-  <h3 mat-subheader>Notes</h3>
-  <mat-list-item *ngFor="let note of notes">
-    <mat-icon mat-list-icon>note</mat-icon>
-    <h4 mat-line>{{note.name}}</h4>
-    <p mat-line> {{note.updated | date}} </p>
-  </mat-list-item> -->
 </mat-list>
