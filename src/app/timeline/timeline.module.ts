@@ -9,7 +9,13 @@ import { LayerComponent } from './components/layer.component';
     CommonModule,
     MaterialModule
   ],
-  declarations: [TimelineComponent, LayerComponent],
-  exports: [TimelineComponent]
+  declarations: [
+    TimelineComponent,
+    LayerComponent
+  ],
+  exports: [
+    TimelineComponent,
+    LayerComponent
+  ]
 })
 export class TimelineModule { }

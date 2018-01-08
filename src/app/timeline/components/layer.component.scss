@@ -1,0 +1,19 @@
+:host {
+  min-width: 300px;
+  display: flex;
+  flex: 1 1 100%;
+  height: 100%;
+}
+
+.layer {
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: row;
+  background: #3d3d3d;
+  border: solid 1px #555555
+}
+
+.tween {
+  position: relative;
+  background: #90E0DE;
+}
