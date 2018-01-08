@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
-import { TimelineComponent } from './components/timeline.component';
+import { LayerComponent } from './components/layer.component';
+import { LayerControlsComponent } from './components/layer-controls.component';
 
 @NgModule({
   imports: [
@@ -9,10 +10,12 @@ import { TimelineComponent } from './components/timeline.component';
     MaterialModule
   ],
   declarations: [
-    TimelineComponent
+    LayerComponent,
+    LayerControlsComponent
   ],
   exports: [
-    TimelineComponent
+    LayerComponent,
+    LayerControlsComponent
   ]
 })
 export class TimelineModule { }
