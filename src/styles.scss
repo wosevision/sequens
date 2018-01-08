@@ -3,11 +3,35 @@
   License: none (public domain)
 */
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
-@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 
 html,
 body {
   width: 100%;
   height: 100%;
 }
+
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core();
+// Define the default theme (same as the example above).
+$sqns-primary: mat-palette($mat-indigo);
+$sqns-accent : mat-palette($mat-pink, A200, A100, A400);
+$sqns-theme : mat-light-theme($sqns-primary, $sqns-accent);
+// Include the default theme styles.
+@include angular-material-theme($sqns-theme);
+// Define an alternate dark theme.
+$sqns-dark-primary: mat-palette($mat-blue-grey);
+$sqns-dark-accent : mat-palette($mat-amber, A200, A100, A400);
+$sqns-dark-warn : mat-palette($mat-deep-orange);
+$sqns-dark-theme : mat-dark-theme($sqns-dark-primary, $sqns-dark-accent, $sqns-dark-warn);
+// Include the alternative theme styles inside of a block with a CSS class. You can make this
+// CSS class whatever you want. In this example, any component inside of an element with
+// `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
+.sqns-theme {
+  @include angular-material-theme($sqns-dark-theme);
+}
+
 
