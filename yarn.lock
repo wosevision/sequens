@@ -170,9 +170,17 @@
   dependencies:
     tslib "^1.7.1"
 
-"@ngrx/store-devtools@^4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-4.1.1.tgz#20745c39c7560fdc05fa4f22638442a7ec7dd676"
+"@ngrx/effects@github:ngrx/effects-builds":
+  version "5.0.0-alpha.0"
+  resolved "https://codeload.github.com/ngrx/effects-builds/tar.gz/00f76212ac7eddf0eb0cbcf997dfc194097968a4"
+
+"@ngrx/entity@github:ngrx/entity-builds":
+  version "5.0.0-alpha.0"
+  resolved "https://codeload.github.com/ngrx/entity-builds/tar.gz/499fecf6c9338cd53bc63d022eda7c577df115db"
+
+"@ngrx/store-devtools@github:ngrx/store-devtools-builds":
+  version "5.0.0-alpha.0"
+  resolved "https://codeload.github.com/ngrx/store-devtools-builds/tar.gz/5492ca527a990ed7821e67a7de9a084118b63f15"
 
 "@ngrx/store@github:ngrx/store-builds":
   version "5.0.0-alpha.0"
