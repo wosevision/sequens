@@ -1,7 +1,7 @@
 import {
   LayerActionTypes,
   LayerActions,
-} from './../actions/layers';
+} from './../actions/layer';
 import { Layer } from '../models/layer';
 
 export interface State {
@@ -19,12 +19,12 @@ export function reducer(
   switch (action.type) {
     case LayerActionTypes.AddLayer:
       return {
-        layers: []
+        layers: [action.payload, ...state.layers]
       };
 
     case LayerActionTypes.RemoveLayer:
       return {
-        layers: []
+        layers: state.layers.filter(item => item.id !== action.payload.id)
       };
 
     default:

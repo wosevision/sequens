@@ -6,17 +6,21 @@ export interface Tween {
 }
 
 export interface Layer {
-  id: string;
-  index: number;
+  id: number;
+  name: string;
   el: string | Element;
   tweens: Tween[];
+  selected: boolean;
+  visible: boolean;
 }
 
 export function generateMockLayer(): Layer {
   return {
-    id: 'mock-layer-1',
-    index: 0,
+    id: 0,
+    name: 'mock-layer-1',
     el: '#test-el',
-    tweens: []
+    tweens: [],
+    selected: false,
+    visible: true
   };
 }
