@@ -9,6 +9,9 @@ import { MaterialModule } from './material/material.module';
 import { TimelineModule } from './timeline/timeline.module';
 import { AppComponent } from './app.component';
 
+import { reducers, metaReducers } from './reducers';
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -17,6 +20,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production
+      ? StoreDevtoolsModule.instrument()
+      : [],
     MaterialModule,
     TimelineModule
   ],

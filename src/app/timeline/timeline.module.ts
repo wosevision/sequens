@@ -10,7 +10,6 @@ import { TimelineComponent } from './components/timeline.component';
   imports: [
     CommonModule,
     MaterialModule,
-    StoreModule.forRoot({}),
     LayerModule
   ],
   declarations: [

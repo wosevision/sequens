@@ -14,28 +14,12 @@ import { Layer, generateMockLayer } from '../../layer/models/layer';
 })
 export class TimelineComponent implements OnInit {
 
-  layers$ = this.store.pipe(select(fromLayer.getLayers));
-  // layer = {
-  //   el: document.createElement('div'),
-  //   get tag() {
-  //     return (<Element>this.el).localName || 'element';
-  //   },
-  //   get class() {
-  //     const classArray = (<Element>this.el).classList.toString().split(' ');
-  //     return classArray.length ? `.${classArray.join('.')}` : '';
-  //   },
-  //   get id() {
-  //     const id = (<Element>this.el).id;
-  //     return id && id !== '' ? `#${id}` : '';
-  //   }
-  // };
+  layers$: Observable<Layer[]>;
 
   constructor(private store: Store<fromLayer.State>) { }
 
   ngOnInit() {
-    // this.layer.el.setAttribute('id', 'fun_id');
-    // this.layer.el.classList.add('fun-class');
-    // this.layer.el.classList.add('more-fun');
+    this.layers$ = this.store.pipe(select(fromLayer.getLayers));
   }
 
   addLayer() {
@@ -43,8 +27,8 @@ export class TimelineComponent implements OnInit {
     this.store.dispatch(new LayerActions.AddLayer(toAdd));
   }
 
-  removeLayer(toRemove) {
-    this.store.dispatch(new LayerActions.RemoveLayer(toRemove));
+  removeLayer(layer) {
+    this.store.dispatch(new LayerActions.RemoveLayer(layer));
   }
 
 }
