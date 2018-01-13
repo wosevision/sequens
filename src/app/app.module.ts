@@ -20,10 +20,10 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production
       ? StoreDevtoolsModule.instrument()
       : [],
+    StoreModule.forRoot(reducers, { metaReducers }),
     MaterialModule,
     TimelineModule
   ],
