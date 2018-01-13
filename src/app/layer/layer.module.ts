@@ -5,13 +5,13 @@ import { StoreModule } from '@ngrx/store';
 import { MaterialModule } from '../material/material.module';
 import { LayerComponent } from './components/layer.component';
 import { LayerControlsComponent } from './components/layer-controls.component';
-import { reducer } from './reducers/layer';
+import { reducers } from './reducers';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    StoreModule.forFeature('layer', reducer)
+    StoreModule.forFeature('layer', reducers)
   ],
   declarations: [
     LayerComponent,

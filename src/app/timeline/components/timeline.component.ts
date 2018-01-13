@@ -3,7 +3,7 @@ import { Store, select } from '@ngrx/store';
 
 import { Observable } from 'rxjs/Observable';
 
-import * as fromLayer from '../../layer/reducers/layer';
+import * as fromLayer from '../../layer/reducers';
 import * as LayerActions from '../../layer/actions/layer';
 import { Layer, generateMockLayer } from '../../layer/models/layer';
 
