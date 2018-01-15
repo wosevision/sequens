@@ -38,3 +38,7 @@ export const getLayers = createSelector(
   getLayerEntitiesState,
   fromLayer.getLayers
 );
+export const getSelectedLayerId = createSelector(
+  getLayerEntitiesState,
+  fromLayer.getSelectedLayerId
+);

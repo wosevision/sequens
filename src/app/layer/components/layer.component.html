@@ -1,4 +1,4 @@
-<div class="layer">
+<div class="layer" [class.selected]="selected">
   <div *ngFor="let tween of tweens"
     [ngStyle]="{ left: (tween.start * 100) + '%', width: (tween.duration * 100) + '%' }"
     class="tween">

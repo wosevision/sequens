@@ -14,10 +14,10 @@ export interface Layer {
   visible: boolean;
 }
 
-export function generateMockLayer(): Layer {
+export function generateMockLayer(id): Layer {
   return {
-    id: 0,
-    name: 'mock-layer-1',
+    id,
+    name: `mock-layer-${id}`,
     el: '#test-el',
     tweens: [],
     selected: false,

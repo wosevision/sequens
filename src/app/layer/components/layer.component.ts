@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'sqns-layer',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layer.component.scss']
 })
 export class LayerComponent implements OnInit {
+  @Input() selected: boolean;
 
   tweens = [
     {

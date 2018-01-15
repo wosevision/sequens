@@ -10,7 +10,10 @@
   flex: 1 1 100%;
   flex-direction: row;
   background: #3d3d3d;
-  border: solid 1px #555555
+  border: solid 1px #555555;
+  &.selected {
+    background: yellow !important;
+  }
 }
 
 .tween {
