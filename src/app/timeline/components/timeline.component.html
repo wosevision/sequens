@@ -5,7 +5,7 @@
       <mat-icon mat-list-icon>radio_button_unchecked</mat-icon>
       <h4 mat-line><strong>{{ layer.id }}:</strong> {{ layer.name }}</h4>
       <!-- <p mat-line>{{ layer.tag + layer.id + layer.class }}</p> -->
-      <sqns-layer [selected]="selectedLayerId === layer.id"></sqns-layer>
+      <sqns-layer [selected]="(selectedLayerId$ | async) === layer.id"></sqns-layer>
     </mat-list-item>
 </mat-nav-list>
 <sqns-layer-controls (addLayer)="addLayer()" (removeLayer)="removeLayer({ id: 0 })"></sqns-layer-controls>
