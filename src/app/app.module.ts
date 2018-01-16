@@ -20,10 +20,12 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    !environment.production
-      ? StoreDevtoolsModule.instrument()
-      : [],
     StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production
+      ? StoreDevtoolsModule.instrument({
+        maxAge: 25 //  Retains last 25 states
+      })
+      : [],
     MaterialModule,
     TimelineModule
   ],
