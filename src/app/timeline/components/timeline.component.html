@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">Timeline</mat-toolbar>
-<mat-nav-list>
+<mat-nav-list (mousemove)="mouseMove($event)">
   <h3 mat-subheader>Layers</h3>
     <mat-list-item *ngFor="let layer of layers$ | async as layers" (click)="selectLayer(layer.id)">
       <mat-icon mat-list-icon>radio_button_unchecked</mat-icon>
@@ -14,3 +14,4 @@
   (addLayer)="addLayer()"
   (removeLayer)="removeLayer(selectedLayerId)">
 </sqns-layer-controls>
+<sqns-timeline-marker [position]="markerPosition"></sqns-timeline-marker>

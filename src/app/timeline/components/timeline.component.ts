@@ -11,12 +11,13 @@ import { Layer, generateMockLayer } from '../../layer/models/layer';
 @Component({
   selector: 'sqns-timeline',
   templateUrl: './timeline.component.html',
-  styles: []
+  styles: [':host { position: relative }']
 })
 export class TimelineComponent implements OnInit {
   /** Local state -- REMOVE THIS */
   layerIndex = 0;
   selectedLayerId: string | null;
+  markerPosition = 0;
 
   selectedLayerId$: Observable<string>;
   layers$: Observable<Layer[]>;
@@ -47,6 +48,13 @@ export class TimelineComponent implements OnInit {
 
   selectLayer(id: string) {
     this.store.dispatch(new LayerActions.SelectLayer({ id }));
+  }
+
+  mouseMove(event: MouseEvent) {
+    const targetRect = (<HTMLElement>event.target).getBoundingClientRect();
+    const { width } = targetRect;
+    const { offsetX } = event;
+    this.markerPosition = offsetX / width;
   }
 
 }

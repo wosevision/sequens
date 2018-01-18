@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { MaterialModule } from '../material/material.module';
 import { LayerModule } from '../layer/layer.module';
 import { TimelineComponent } from './components/timeline.component';
+import { TimelineMarkerComponent } from './components/timeline-marker.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { TimelineComponent } from './components/timeline.component';
     LayerModule
   ],
   declarations: [
-    TimelineComponent
+    TimelineComponent,
+    TimelineMarkerComponent
   ],
   exports: [
     TimelineComponent
