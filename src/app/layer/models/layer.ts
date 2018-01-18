@@ -6,7 +6,7 @@ export interface Tween {
 }
 
 export interface Layer {
-  id: number;
+  id: string;
   name: string;
   el: string | Element;
   tweens: Tween[];

@@ -17,19 +17,19 @@ export enum LayerActionTypes {
 export class AddLayer implements Action {
   readonly type = LayerActionTypes.AddLayer;
 
-  constructor(public payload: Layer) { }
+  constructor(public payload: { layer: Layer }) { }
 }
 
 export class RemoveLayer implements Action {
   readonly type = LayerActionTypes.RemoveLayer;
 
-  constructor(public payload: Layer) { }
+  constructor(public payload: { id: string }) { }
 }
 
 export class SelectLayer implements Action {
   readonly type = LayerActionTypes.SelectLayer;
 
-  constructor(public payload: Layer) { }
+  constructor(public payload: { id: string }) { }
 }
 
 /**

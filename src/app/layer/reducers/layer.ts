@@ -1,18 +1,23 @@
 import {
+  EntityState,
+  EntityAdapter,
+  createEntityAdapter
+} from '@ngrx/entity';
+import {
   LayerActionTypes,
   LayerActions,
 } from './../actions/layer';
 import { Layer } from '../models/layer';
 
-export interface State {
-  selectedLayerId?: number;
-  layers: Layer[];
+export interface State extends EntityState<Layer> {
+  selectedLayerId?: string | null;
 }
 
-const initialState: State = {
-  selectedLayerId: null,
-  layers: []
-};
+export const adapter = createEntityAdapter<Layer>();
+
+export const initialState: State = adapter.getInitialState({
+  selectedLayerId: null
+});
 
 export function reducer(
   state: State = initialState,
@@ -20,26 +25,14 @@ export function reducer(
 ): State {
   switch (action.type) {
     case LayerActionTypes.AddLayer:
-      return {
-        layers: [action.payload, ...state.layers],
-        selectedLayerId: action.payload.id
-      };
-
+      return adapter.addOne(action.payload.layer, state);
     case LayerActionTypes.RemoveLayer:
-      return {
-        layers: state.layers.filter(item => item.id !== action.payload.id),
-      };
-
+      return adapter.removeOne(action.payload.id, state);
     case LayerActionTypes.SelectLayer:
-      return {
-        ...state,
-        selectedLayerId: action.payload.id
-      };
-
+      return { ...state, selectedLayerId: action.payload.id };
     default:
       return state;
   }
 }
 
-export const getLayers = (state: State) => state.layers;
 export const getSelectedLayerId = (state: State) => state.selectedLayerId;

@@ -1,17 +1,21 @@
-import { createSelector, createFeatureSelector } from '@ngrx/store';
+import {
+  ActionReducerMap,
+  createSelector,
+  createFeatureSelector
+} from '@ngrx/store';
 import * as fromLayer from './layer';
 import * as fromRoot from '../../reducers';
 
 export interface LayerState {
-  layer: fromLayer.State;
+  layers: fromLayer.State;
 }
 
 export interface State extends fromRoot.State {
   layer: LayerState;
 }
 
-export const reducers = {
-  layer: fromLayer.reducer
+export const reducers: ActionReducerMap<LayerState> = {
+  layers: fromLayer.reducer
 };
 
 /**
@@ -31,14 +35,18 @@ export const getLayerState = createFeatureSelector<LayerState>('layer');
  */
 export const getLayerEntitiesState = createSelector(
   getLayerState,
-  state => state.layer
+  state => state.layers
 );
+export const {
+  selectIds: getLayerIds, // select the array of layer ids
+  selectEntities: getLayerEntities, // select the dictionary of layer entities
+  selectAll: getLayers, // select the array of layers
+  selectTotal: getLayerTotal // select the total layer count
+} = fromLayer.adapter.getSelectors(getLayerEntitiesState);
 
-export const getLayers = createSelector(
-  getLayerEntitiesState,
-  fromLayer.getLayers
-);
-export const getSelectedLayerId = createSelector(
-  getLayerEntitiesState,
-  fromLayer.getSelectedLayerId
+export const getSelectedLayerId = createSelector(getLayerEntitiesState, fromLayer.getSelectedLayerId);
+export const selectCurrentUser = createSelector(
+  getLayerEntities,
+  getSelectedLayerId,
+  (layerEntities, layerId) => layerEntities[layerId]
 );

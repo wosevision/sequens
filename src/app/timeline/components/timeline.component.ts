@@ -34,17 +34,18 @@ export class TimelineComponent implements OnInit {
   }
 
   addLayer() {
-    const toAdd = generateMockLayer(this.layerIndex);
+    const layer = generateMockLayer(this.layerIndex);
     this.layerIndex++;
-    this.store.dispatch(new LayerActions.AddLayer(toAdd));
+    this.store.dispatch(new LayerActions.AddLayer({ layer }));
   }
 
-  removeLayer(layer) {
-    this.store.dispatch(new LayerActions.RemoveLayer(layer));
+  removeLayer(id: string) {
+    this.store.dispatch(new LayerActions.RemoveLayer({ id }));
+    this.selectedLayerId = null;
   }
 
-  selectLayer(layer) {
-    this.store.dispatch(new LayerActions.SelectLayer(layer));
+  selectLayer(id: string) {
+    this.store.dispatch(new LayerActions.SelectLayer({ id }));
   }
 
 }
