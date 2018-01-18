@@ -1,6 +1,6 @@
-<button mat-icon-button (click)="addLayer.emit()">
+<button mat-icon-button (click)="addLayer.emit()" [disabled]="addDisabled">
   <mat-icon aria-label="New layer">layers</mat-icon>
 </button>
-<button mat-icon-button color="warn" (click)="removeLayer.emit()">
+<button mat-icon-button color="warn" (click)="removeLayer.emit()" [disabled]="removeDisabled">
   <mat-icon aria-label="Delete selected layer">layers_clear</mat-icon>
 </button>

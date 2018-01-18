@@ -16,21 +16,22 @@ import { Layer, generateMockLayer } from '../../layer/models/layer';
 export class TimelineComponent implements OnInit {
   /** Local state -- REMOVE THIS */
   layerIndex = 0;
+  selectedLayerId: string | null;
 
-  selectedLayerId$: Observable<number>;
+  selectedLayerId$: Observable<string>;
   layers$: Observable<Layer[]>;
 
-  constructor(private store: Store<fromLayer.State>) { }
+  constructor(private store: Store<fromLayer.LayerState>) { }
 
   ngOnInit() {
-    this.selectedLayerId$ = this.store.pipe(
-      select(fromLayer.getSelectedLayerId),
-      share()
-    );
-      // .subscribe(id => this.selectedLayerId = id);
+    this.store
+      .pipe(select(fromLayer.getSelectedLayerId))
+      .subscribe(id => this.selectedLayerId = id);
     this.layers$ = this.store.pipe(
       select(fromLayer.getLayers)
     );
+
+    this.layers$.subscribe(r => console.log('DOO!', r));
   }
 
   addLayer() {

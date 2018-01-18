@@ -1,4 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter
+} from '@angular/core';
 
 @Component({
   selector: 'sqns-layer-controls',
@@ -6,6 +12,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./layer-controls.component.scss']
 })
 export class LayerControlsComponent implements OnInit {
+
+  @Input() addDisabled: boolean;
+  @Input() removeDisabled: boolean;
 
   @Output() addLayer = new EventEmitter();
   @Output() removeLayer = new EventEmitter();
